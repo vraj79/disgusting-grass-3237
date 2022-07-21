@@ -1,0 +1,46 @@
+#navbar{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    gap: 10%;
+    justify-content: space-between;
+    }
+    #navbar>img{
+        width: 20%;
+        margin-top: 10px;
+    }
+    #anchor{
+        margin-top: 15px;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+    }
+    #anchor>a{
+        text-decoration: none;
+        color: black;
+    }
+    body>p{
+        text-align: center;
+        font-weight: bolder;
+        font-size:50px
+    }
+    #container{
+        width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 5%;
+        row-gap: 3%;
+        font-size: 18px;
+    }
+    #container img{
+        width: 100%;
+    }
+    .topic{
+        font-weight: bolder;
+        font-size: 34px;
+    }
+    .more{
+        text-decoration: none;
+        color: rgb(255, 70, 101);
+    }
