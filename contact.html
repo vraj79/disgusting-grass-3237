@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body{
+      display: grid;
+      grid-template-columns: 1fr 1fr
+    }
+    div:nth-child(1){
+      background-color: #0f1b29;
+      height: 100%;
+      color: white;
+    }
+    div:nth-child(1) img{
+      width: 30%;
+      margin-left: 50px;
+      margin-top: 50px;
+    }
+    div:nth-child(1) > div{
+      width: 35%;
+      margin: auto;
+      margin-top: 50px;
+      font-size: 20px;
+    }
+    .image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+      margin-bottom: 58px;
+    }
+    div:nth-child(2) form{
+      width: 50%;
+      margin: auto;
+      display: grid;
+      font-size: 20px;
+    }
+    input,select,textarea{
+      margin-top: -4%;
+      border: 1px solid #f07;
+      padding: 4%;
+    }
+    textarea{
+      margin-bottom: 10%;
+    }
+    #submit{
+      padding: 5%;
+      border: 0px;
+      border-radius: 10px;
+      background-color: #f07;
+    }
+    @media screen and (min-width:320Px) and (max-width:768px){
+      body{
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      div:nth-child(1) > div{
+        width: 60%;
+        text-align: center;
+      }
+      .image{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="https://about.codecov.io/wp-content/themes/codecov/assets/brand/logos/codecov.svg" alt="">
+    <div>
+      <h1>Get In Touch.</h1>
+      <p>Fill in the form to the right to get in touch with someone on our team, and we will reach out shortly.</p>
+      <p>If you are seeking support please visit our support portal before reaching out directly.</p>
+      <div class="image">
+        <img
+          src="https://about.codecov.io/wp-content/uploads/2021/06/NTT-Data-Logo.svg"
+          alt=""
+        />
+        <img
+          src="https://about.codecov.io/wp-content/uploads/2021/07/wework-logo.svg"
+          alt=""
+        />
+        <img
+          src="https://about.codecov.io/wp-content/uploads/2021/06/Hewlett_Packard_Enterprise_logo.svg"
+          alt=""
+        />
+        <img
+          src="https://about.codecov.io/wp-content/uploads/2021/06/Nutrien_Logo.svg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <div>
+    <form action="">
+      <p>First Name: </p><input type="text" id="Fname" required>
+      <p>Last Name: </p><input type="text" id="Lname" required>
+      <p>Email Address: </p><input type="email" id="email" required>
+      <p>Phone Number: </p><input type="number" id="phone" required>
+      <p>Contact Reason: </p>
+    <select required id="contactReason">
+      <option value=""></option>
+      <option value="General">General</option>
+      <option value="Become a Partner">Become a Partner</option>
+      <option value="Help and Started">Help and Support</option>
+    </select>
+    <p>Message:</p>
+    <textarea name="" id="textarea" cols="30" rows="5"></textarea>
+    <input type="submit" id="submit">
+    </form>
+  </div>
+</body>
+</html>
+<script>
+  document.querySelector("img").addEventListener("click", function(){
+    window.location ="homepage.html"
+  })
+
+  document.querySelector("form").addEventListener("submit", ConFun);
+
+  let cArr=JSON.parse(localStorage.getItem("contact-details"))||[];
+  function ConFun(event){
+    event.preventDefault();
+    let cObj={
+      first_name:document.getElementById("Fname").value,
+      last_name:document.getElementById("Lname").value,
+      email:document.getElementById("email").value,
+      mob:document.getElementById("phone").value,
+      conRea:document.getElementById("contactReason").value,
+      message:document.getElementById("textarea").value
+    }
+    cArr.push(cObj);
+    localStorage.setItem("contact-details",JSON.stringify(cArr));
+    alert("Contact Details Saved Successfully");
+    window.location.reload();
+  }
+  
+  
+</script>
